@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tangkap Hati Bella</title>
+
+<style>
+  body {
+    text-align: center;
+    font-family: Arial;
+    background: #ffe6f0;
+  }
+
+  h1 {
+    color: #ff4d6d;
+  }
+
+  #game {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border: 2px solid #ff4d6d;
+    border-radius: 10px;
+    background: white;
+  }
+
+  #heart {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>💖 Tangkap Hati Bella 💖</h1>
+<p>Skor: <span id="score">0</span></p>
+
+<div id="game">
+  <div id="heart">❤️</div>
+</div>
+
+<script>
+let score = 0;
+const heart = document.getElementById("heart");
+const game = document.getElementById("game");
+
+function moveHeart() {
+  const x = Math.random() * (game.clientWidth - 30);
+  const y = Math.random() * (game.clientHeight - 30);
+  heart.style.left = x + "px";
+  heart.style.top = y + "px";
+}
+
+heart.onclick = () => {
+  score++;
+  document.getElementById("score").innerText = score;
+  moveHeart();
+};
+
+moveHeart();
+</script>
+
+</body>
+</html>
